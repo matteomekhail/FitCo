@@ -11,7 +11,7 @@ interface PlanProps {
 }
 
 const PlanCard: React.FC<PlanProps> = ({ title, subtitle, price, features }) => (
-  <Card className="w-full max-w-sm mx-auto flex flex-col h-full">
+  <Card className="w-full max-w-sm mx-auto flex flex-col h-full bg-gradient-to-b from-blue-100 to-blue-200">
     <CardHeader>
       <CardTitle className="text-xl font-bold text-primary">{title}</CardTitle>
       <p className="text-sm text-muted-foreground">{subtitle}</p>
@@ -80,10 +80,10 @@ const PricingSection: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 bg-gradient-to-b from-blue-300 to-blue-500">
+    <section className="py-16 bg-zinc-100 shadown-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center text-white mb-2">CHOOSE YOUR PLAN 🔥</h2>
-        <p className="text-center text-white mb-12">Select the perfect plan to kickstart your fitness journey</p>
+        <h2 className="text-4xl font-bold text-center text-blue-600 mb-2">CHOOSE YOUR PLAN 🔥</h2>
+        <p className="text-center text-blue-500 mb-12">Select the perfect plan to kickstart your fitness journey</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {plans.map((plan, index) => (
             <PlanCard key={index} {...plan} />

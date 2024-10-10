@@ -5,7 +5,7 @@ import { ChevronRight, Dumbbell, Apple, Heart } from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <div className="relative h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] overflow-hidden">
+    <div className="relative h-[calc(100vh-5rem)] md:h-[calc(100vh-8rem)] overflow-hidden shadow-lg">
       {/* Video Background */}
       <video
         className="absolute top-0 left-0 w-full h-full object-cover"

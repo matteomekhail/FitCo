@@ -2,20 +2,20 @@ import React from 'react';
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from 'lucide-react';
 
 const FooterLink: React.FC<{ href: string; children: React.ReactNode }> = ({ href, children }) => (
-    <a href={href} className="hover:text-[#0197F6] transition-colors duration-300">
+    <a href={href} className="hover:text-blue-200 transition-colors duration-300">
         {children}
     </a>
 );
 
 const SocialIcon: React.FC<{ Icon: React.ElementType; href: string }> = ({ Icon, href }) => (
-    <a href={href} className="text-white hover:text-[#0197F6] transition-colors duration-300">
+    <a href={href} className="text-white hover:text-blue-200 transition-colors duration-300">
         <Icon size={24} />
     </a>
 );
 
 const Footer: React.FC = () => {
     return (
-        <footer className="bg-gradient-to-b from-[#0197F6] to-black text-white">
+        <footer className="bg-gradient-to-b from-[#0197F6] via-[#0056b3] to-black text-white">
             <div className="max-w-7xl mx-auto px-4 py-12 sm:px-6 lg:px-8">
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div>
@@ -58,7 +58,7 @@ const Footer: React.FC = () => {
                 </div>
                 <div className="mt-8 pt-8 border-t border-white/10 text-center text-sm">
                     <p>&copy; {new Date().getFullYear()} FitCo. All rights reserved.</p>
-                <span>Developed and designed by <a href="https://stagetwolab.com" className="bg-clip-text text-transparent bg-gradient-to-r from-[#e85f4b] to-[#3a8f87] hover:underline">StageTwo Lab</a>.</span>
+                    <span>Developed and designed by <a href="https://stagetwolab.com" className="bg-clip-text text-transparent bg-gradient-to-r from-[#e85f4b] to-[#3a8f87] hover:underline">StageTwo Lab</a>.</span>
                 </div>
             </div>
         </footer>
