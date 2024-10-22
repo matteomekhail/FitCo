@@ -50,8 +50,10 @@ const HeroSection = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <Button size="lg" className="bg-white text-[#0197F6] hover:bg-opacity-90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300">
-            Start Your Journey <ChevronRight className="ml-2" />
+          <Button size="lg" className="bg-white text-[#0197F6] hover:bg-opacity-90 font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-xl transition duration-300" asChild>
+            <a href="#pricing-section">
+              Start Your Journey <ChevronRight className="ml-2" />
+            </a>
           </Button>
           <Button size="lg" variant="outline" className="bg-transparent border-2 border-white text-white font-bold py-3 px-8 rounded-full hover:bg-white hover:text-[#0197F6] transition duration-300">
             Learn More
