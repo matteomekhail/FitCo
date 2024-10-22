@@ -30,8 +30,8 @@ function Footer() {
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-4 text-primary">Quick Links</h3>
-                        <ul className="space-y-2 text-sm">
-                            <li><FooterLink href="/services">FitFoodCo</FooterLink></li>
+                        <ul className="space-y-2 text-sm text-yellow-500 ">
+                            <li><FooterLink href="https://fitfoodco.au">FitFoodCo</FooterLink></li>
                         </ul>
                     </div>
                     <div>
