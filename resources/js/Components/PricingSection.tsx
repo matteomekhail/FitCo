@@ -20,53 +20,55 @@ interface PlanProps {
   highlighted?: boolean;
 }
 
-const PlanCard: React.FC<PlanProps> = ({ title, subtitle, price, frequency, features, buttonLink, highlighted }) => (
-  <motion.div
-    whileHover={{ scale: 1.03 }}
-    transition={{ duration: 0.3 }}
-  >
-    <Card className={`w-full max-w-sm mx-auto flex flex-col h-full ${
-      highlighted ? 'bg-primary text-primary-foreground' : 'bg-card text-card-foreground'
-    } shadow-2xl rounded-3xl overflow-hidden relative border-2 ${
-      highlighted ? 'border-accent' : 'border-transparent'
-    }`}>
-      {highlighted && (
-        <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
-          MOST POPULAR
-        </Badge>
-      )}
-      <CardHeader className="text-center pt-8">
-        <CardTitle className="text-3xl font-extrabold mb-2">{title}</CardTitle>
-        <p className="text-sm opacity-80 mb-4">{subtitle}</p>
-        <div className="text-center mb-4">
-          <span className="text-5xl font-bold">${price}</span>
-          <span className="text-lg opacity-80">/{frequency}</span>
-        </div>
-      </CardHeader>
-      <CardContent className="flex-grow px-8">
-        <ul className="space-y-4">
-          {features.map((feature, index) => (
-            <li key={index} className="flex items-center">
-              {feature.included ? (
-                <Check className="text-accent mr-3 flex-shrink-0" size={20} />
-              ) : (
-                <X className="text-destructive mr-3 flex-shrink-0" size={20} />
-              )}
-              <span className="text-sm">{feature.name}</span>
-            </li>
-          ))}
-        </ul>
-      </CardContent>
-      <CardFooter className="mt-auto pb-8 px-8">
-        <Button className={`w-full py-6 text-lg font-semibold rounded-full ${
-          highlighted ? 'bg-accent text-accent-foreground hover:bg-accent/90' : 'bg-primary text-primary-foreground hover:bg-primary/90'
-        }`} asChild>
-          <a href={buttonLink}>Get Started</a>
-        </Button>
-      </CardFooter>
-    </Card>
-  </motion.div>
-);
+function PlanCard({ title, subtitle, price, frequency, features, buttonLink, highlighted }: PlanProps) {
+  return (
+    <motion.div
+      whileHover={{ scale: 1.03 }}
+      transition={{ duration: 0.3 }}
+    >
+      <Card className={`w-full max-w-sm mx-auto flex flex-col h-full ${
+        highlighted ? 'bg-primary text-primary-foreground' : 'bg-card text-card-foreground'
+      } shadow-2xl rounded-3xl overflow-hidden relative border-2 ${
+        highlighted ? 'border-accent' : 'border-transparent'
+      }`}>
+        {highlighted && (
+          <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
+            MOST POPULAR
+          </Badge>
+        )}
+        <CardHeader className="text-center pt-8">
+          <CardTitle className="text-3xl font-extrabold mb-2">{title}</CardTitle>
+          <p className="text-sm opacity-80 mb-4">{subtitle}</p>
+          <div className="text-center mb-4">
+            <span className="text-5xl font-bold">${price}</span>
+            <span className="text-lg opacity-80">/{frequency}</span>
+          </div>
+        </CardHeader>
+        <CardContent className="flex-grow px-8">
+          <ul className="space-y-4">
+            {features.map((feature, index) => (
+              <li key={index} className="flex items-center">
+                {feature.included ? (
+                  <Check className={`mr-3 flex-shrink-0 ${highlighted ? 'text-accent' : 'text-black'}`} size={20} />
+                ) : (
+                  <X className="text-destructive mr-3 flex-shrink-0" size={20} />
+                )}
+                <span className="text-sm">{feature.name}</span>
+              </li>
+            ))}
+          </ul>
+        </CardContent>
+        <CardFooter className="mt-auto pb-8 px-8">
+          <Button className={`w-full py-6 text-lg font-semibold rounded-full ${
+            highlighted ? 'bg-accent text-accent-foreground hover:bg-accent/90' : 'bg-primary text-primary-foreground hover:bg-primary/90'
+          }`} asChild>
+            <a href={buttonLink}>Get Started</a>
+          </Button>
+        </CardFooter>
+      </Card>
+    </motion.div>
+  );
+}
 
 const PricingSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'membership' | 'oneOff'>('membership');
