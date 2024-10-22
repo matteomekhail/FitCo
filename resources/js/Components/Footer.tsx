@@ -41,22 +41,12 @@ function Footer() {
                                 <Mail size={16} className="mr-2 text-primary" />
                                 <FooterLink href="mailto:info@fitco.com">info@fitco.com</FooterLink>
                             </li>
-                            <li className="flex items-center">
-                                <Phone size={16} className="mr-2 text-primary" />
-                                <FooterLink href="tel:+11234567890">+1 (123) 456-7890</FooterLink>
-                            </li>
-                            <li className="flex items-center">
-                                <MapPin size={16} className="mr-2 text-primary" />
-                                123 Fitness Street, Healthy City, FC 12345
-                            </li>
                         </ul>
                     </div>
                     <div>
                         <h3 className="text-lg font-semibold mb-4 text-primary">Follow Us</h3>
                         <div className="flex space-x-4">
-                            <SocialIcon Icon={Facebook} href="https://facebook.com/fitco" />
-                            <SocialIcon Icon={Instagram} href="https://instagram.com/fitco" />
-                            <SocialIcon Icon={Twitter} href="https://twitter.com/fitco" />
+                            <SocialIcon Icon={Instagram} href="https://instagram.com/fitco_coaching" />
                         </div>
                     </div>
                 </div>
