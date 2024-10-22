@@ -12,7 +12,7 @@ function Header() {
 
   return (
     <>
-      <header className="h-20 md:h-32 flex items-center bg-primary">
+      <header className="h-20 md:h-32 flex items-center bg-gradient-to-b from-primary to-white">
         <div className="container mx-auto px-4 flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <Button variant="ghost" className="p-0 lg:hidden text-primary-foreground hover:text-secondary transition-colors duration-200" onClick={toggleMenu}>
