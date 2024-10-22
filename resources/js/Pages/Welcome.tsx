@@ -10,9 +10,9 @@ export default function Home() {
   return (
     <AppLayout title="Home">
         <HeroSection />
-        <TransformationGallery />
         <ServicesSection />
         <PricingSection />
+        <TransformationGallery />
     </AppLayout>
   );
 }

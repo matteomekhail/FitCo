@@ -15,16 +15,17 @@ import useEmblaCarousel from 'embla-carousel-react';
 
 interface Transformation {
     imageUrl: string;
-
+    name: string;
+    description: string;
 }
 
 const transformations: Transformation[] = [
-    { imageUrl: '/img/Tras1.jpeg' },
-    { imageUrl: '/img/Tras2.jpeg' },
-    { imageUrl: '/img/Tras3.jpeg' },
-    { imageUrl: '/img/Tras4.jpeg' },
-    { imageUrl: '/img/Tras5.jpeg' },
-    { imageUrl: '/img/Tras6.jpeg' },
+    { imageUrl: '/img/Tras1.jpeg', name: "John Doe", description: "Lost 30kg in 6 months" },
+    { imageUrl: '/img/Tras2.jpeg', name: "Jane Smith", description: "Gained 10kg of muscle" },
+    { imageUrl: '/img/Tras3.jpeg', name: "Mike Johnson", description: "Improved overall fitness" },
+    { imageUrl: '/img/Tras4.jpeg', name: "Emily Brown", description: "Achieved her dream body" },
+    { imageUrl: '/img/Tras5.jpeg', name: "David Lee", description: "Transformed lifestyle" },
+    { imageUrl: '/img/Tras6.jpeg', name: "Sarah Wilson", description: "Boosted confidence" },
 ];
 
 interface TransformationCardProps {
@@ -32,43 +33,49 @@ interface TransformationCardProps {
     onClick: () => void;
 }
 
-const TransformationCard: React.FC<TransformationCardProps> = ({ transformation, onClick }) => (
-    <motion.div
-        className="h-full w-full cursor-pointer"
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
-        onClick={onClick}
-    >
-        <Card className="overflow-hidden h-full shadow-lg bg-gradient-to-br from-blue-500 to-purple-600 p-0.5 rounded-xl">
-            <CardContent className="p-0 h-full bg-gray-900 rounded-lg overflow-hidden">
-                <div className="relative h-full group">
-                    <img
-                        src={transformation.imageUrl}
-                        alt="Transformation"
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 transition-opacity duration-300 flex items-center justify-center">
-                        <ZoomIn className="text-white" size={32} />
+function TransformationCard({ transformation, onClick }: TransformationCardProps) {
+    return (
+        <motion.div
+            className="h-full w-full cursor-pointer"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={onClick}
+        >
+            <Card className="overflow-hidden h-full shadow-lg bg-primary p-0.5 rounded-xl">
+                <CardContent className="p-0 h-full bg-background rounded-lg overflow-hidden">
+                    <div className="relative h-full group">
+                        <img
+                            src={transformation.imageUrl}
+                            alt={`Transformation of ${transformation.name}`}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-0 bg-primary/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+                            <h3 className="text-primary-foreground font-bold text-lg">{transformation.name}</h3>
+                            <p className="text-primary-foreground/80 text-sm">{transformation.description}</p>
+                            <Badge variant="secondary" className="mt-2 self-start bg-secondary text-secondary-foreground font-semibold px-3 py-1">
+                                Before & After
+                            </Badge>
+                        </div>
+                        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <ZoomIn className="text-primary-foreground" size={40} />
+                        </div>
                     </div>
-                    <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent">
-                        <Badge variant="secondary" className="mb-2 bg-blue-500 text-white font-semibold px-3 py-1">Before & After</Badge>
-                    </div>
-                </div>
-            </CardContent>
-        </Card>
-    </motion.div>
-);
+                </CardContent>
+            </Card>
+        </motion.div>
+    );
+}
 
-const TransformationGallery: React.FC = () => {
-    const [selectedImage, setSelectedImage] = useState<string | null>(null);
+function TransformationGallery() {
+    const [selectedImage, setSelectedImage] = useState<Transformation | null>(null);
     const [emblaRef] = useEmblaCarousel({ loop: true });
 
     return (
-        <section className="py-20 text-foreground relative bg-gradient-to-b from-gray-900 to-black overflow-hidden">
+        <section className="py-20 text-foreground relative bg-background overflow-hidden">
             <div className="absolute inset-0 opacity-10 bg-[url('/noise.svg')] pointer-events-none"></div>
             <div className="container mx-auto px-4 relative z-10">
                 <motion.h2 
-                    className="text-5xl font-bold text-center mb-8 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-600"
+                    className="text-5xl font-bold text-center mb-8 text-primary"
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7 }}
@@ -76,7 +83,7 @@ const TransformationGallery: React.FC = () => {
                     Incredible Transformations
                 </motion.h2>
                 <motion.p 
-                    className="text-center text-gray-300 mb-16 max-w-2xl mx-auto text-lg"
+                    className="text-center text-muted-foreground mb-16 max-w-2xl mx-auto text-lg"
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.7, delay: 0.2 }}
@@ -96,15 +103,15 @@ const TransformationGallery: React.FC = () => {
                             <CarouselItem key={index} className="pl-4 md:basis-1/2 lg:basis-1/3">
                                 <TransformationCard 
                                     transformation={transformation} 
-                                    onClick={() => setSelectedImage(transformation.imageUrl)}
+                                    onClick={() => setSelectedImage(transformation)}
                                 />
                             </CarouselItem>
                         ))}
                     </CarouselContent>
-                    <CarouselPrevious className="left-0 lg:-left-16 bg-white/10 text-white border-none">
+                    <CarouselPrevious className="left-0 lg:-left-16 bg-primary/10 text-primary border-none hover:bg-primary/20">
                         <ChevronLeft size={24} />
                     </CarouselPrevious>
-                    <CarouselNext className="right-0 lg:-right-16 bg-white/10 text-white border-none">
+                    <CarouselNext className="right-0 lg:-right-16 bg-primary/10 text-primary border-none hover:bg-primary/20">
                         <ChevronRight size={24} />
                     </CarouselNext>
                 </Carousel>
@@ -116,29 +123,35 @@ const TransformationGallery: React.FC = () => {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
-                        className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50"
+                        className="fixed inset-0 bg-background/95 flex items-center justify-center z-50"
                         onClick={() => setSelectedImage(null)}
                     >
-                        <motion.img
-                            src={selectedImage}
-                            alt="Enlarged transformation"
-                            className="max-w-[80vw] max-h-[80vh] object-contain"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
-                            transition={{ type: "spring", damping: 25, stiffness: 120 }}
-                        />
-                        <Button
-                            className="absolute top-4 right-4 bg-transparent hover:bg-white/10 text-white rounded-full p-2"
-                            onClick={(e: React.MouseEvent) => { e.stopPropagation(); setSelectedImage(null); }}
-                        >
-                            <X size={24} />
-                        </Button>
+                        <div className="relative max-w-4xl w-full mx-4">
+                            <motion.img
+                                src={selectedImage.imageUrl}
+                                alt={`Enlarged transformation of ${selectedImage.name}`}
+                                className="w-full h-auto object-contain rounded-lg shadow-2xl"
+                                initial={{ scale: 0.8, opacity: 0 }}
+                                animate={{ scale: 1, opacity: 1 }}
+                                exit={{ scale: 0.8, opacity: 0 }}
+                                transition={{ type: "spring", damping: 25, stiffness: 120 }}
+                            />
+                            <div className="absolute bottom-4 left-4 right-4 bg-primary/70 p-4 rounded-b-lg">
+                                <h3 className="text-primary-foreground font-bold text-xl mb-1">{selectedImage.name}</h3>
+                                <p className="text-primary-foreground/80">{selectedImage.description}</p>
+                            </div>
+                            <Button
+                                className="absolute top-4 right-4 bg-primary/10 hover:bg-primary/20 text-primary rounded-full p-2"
+                                onClick={(e: React.MouseEvent) => { e.stopPropagation(); setSelectedImage(null); }}
+                            >
+                                <X size={24} />
+                            </Button>
+                        </div>
                     </motion.div>
                 )}
             </AnimatePresence>
         </section>
     );
-};
+}
 
 export default TransformationGallery;
