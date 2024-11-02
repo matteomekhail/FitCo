@@ -27,21 +27,21 @@ function PlanCard({ title, subtitle, price, frequency, features, buttonLink, hig
       transition={{ duration: 0.3 }}
     >
       <Card className={`w-full max-w-sm mx-auto flex flex-col h-full ${
-        highlighted ? 'bg-primary text-primary-foreground' : 'bg-card text-card-foreground'
-      } shadow-2xl rounded-3xl overflow-hidden relative border-2 ${
-        highlighted ? 'border-accent' : 'border-transparent'
+        highlighted ? 'bg-primary/5' : 'bg-white'
+      } shadow-xl rounded-3xl overflow-hidden relative border ${
+        highlighted ? 'border-primary' : 'border-gray-100'
       }`}>
         {highlighted && (
-          <Badge className="absolute top-4 right-4 bg-accent text-accent-foreground">
+          <Badge className="absolute top-4 right-4 bg-primary hover:bg-primary text-primary-foreground">
             MOST POPULAR
           </Badge>
         )}
         <CardHeader className="text-center pt-8">
-          <CardTitle className="text-3xl font-extrabold mb-2">{title}</CardTitle>
-          <p className="text-sm opacity-80 mb-4">{subtitle}</p>
+          <CardTitle className="text-3xl font-extrabold mb-2 text-gray-900">{title}</CardTitle>
+          <p className="text-sm text-gray-600 mb-4">{subtitle}</p>
           <div className="text-center mb-4">
-            <span className="text-5xl font-bold">${price}</span>
-            <span className="text-lg opacity-80">/{frequency}</span>
+            <span className="text-5xl font-bold text-primary">${price}</span>
+            <span className="text-lg text-gray-600">/{frequency}</span>
           </div>
         </CardHeader>
         <CardContent className="flex-grow px-8">
@@ -49,18 +49,20 @@ function PlanCard({ title, subtitle, price, frequency, features, buttonLink, hig
             {features.map((feature, index) => (
               <li key={index} className="flex items-center">
                 {feature.included ? (
-                  <Check className={`mr-3 flex-shrink-0 ${highlighted ? 'text-accent' : 'text-black'}`} size={20} />
+                  <Check className="mr-3 flex-shrink-0 text-primary" size={20} />
                 ) : (
                   <X className="text-destructive mr-3 flex-shrink-0" size={20} />
                 )}
-                <span className="text-sm">{feature.name}</span>
+                <span className="text-sm text-gray-600">{feature.name}</span>
               </li>
             ))}
           </ul>
         </CardContent>
         <CardFooter className="mt-auto pb-8 px-8">
           <Button className={`w-full py-6 text-lg font-semibold rounded-full ${
-            highlighted ? 'bg-accent text-accent-foreground hover:bg-accent/90' : 'bg-primary text-primary-foreground hover:bg-primary/90'
+            highlighted 
+              ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+              : 'bg-primary/10 text-primary hover:bg-primary/20'
           }`} asChild>
             <a href={buttonLink}>Get Started</a>
           </Button>
@@ -148,19 +150,21 @@ const PricingSection: React.FC = () => {
   };
 
   return (
-    <section id="pricing-section" className="py-24 bg-gradient-to-b from-background to-secondary/20">
+    <section id="pricing-section" className="py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-5xl font-extrabold text-foreground mb-4">Choose Your Fitness Journey</h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">Tailored plans to meet your unique goals and lifestyle</p>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Choose Your Fitness Journey</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">Tailored plans to meet your unique goals and lifestyle</p>
         </div>
 
         <div className="flex justify-center mb-16">
-          <div className="bg-muted p-1 rounded-full inline-flex">
+          <div className="bg-gray-100 p-1 rounded-full inline-flex">
             <Button
               variant={activeTab === 'membership' ? 'default' : 'ghost'}
               className={`rounded-full px-8 py-3 transition-all duration-300 ${
-                activeTab === 'membership' ? 'shadow-md' : ''
+                activeTab === 'membership' 
+                  ? 'bg-primary text-primary-foreground shadow-md' 
+                  : 'text-gray-600 hover:text-primary'
               }`}
               onClick={() => setActiveTab('membership')}
             >
@@ -169,7 +173,9 @@ const PricingSection: React.FC = () => {
             <Button
               variant={activeTab === 'oneOff' ? 'default' : 'ghost'}
               className={`rounded-full px-8 py-3 transition-all duration-300 ${
-                activeTab === 'oneOff' ? 'shadow-md' : ''
+                activeTab === 'oneOff' 
+                  ? 'bg-primary text-primary-foreground shadow-md' 
+                  : 'text-gray-600 hover:text-primary'
               }`}
               onClick={() => setActiveTab('oneOff')}
             >
