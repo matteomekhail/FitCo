@@ -24,19 +24,19 @@ const ServicesSection: React.FC = () => {
   const services: ServiceCardProps[] = [
     {
       title: "NUTRITION COACHING",
-      subtitle: "Personalized meal plans",
+      subtitle: "Personalised meal plans",
       imageSrc: "/img/nutrition.jpg",
       link: "https://www.trainerize.me/profile/transformxfitness1/?planGUID=50d5db50290042a88b470ea00b6b59a2"
     },
     {
       title: "TRAINING & NUTRITION COACHING",
-      subtitle: "Comprehensive fitness programs",
+      subtitle: "Training & Nutrition coaching suited to you",
       imageSrc: "/img/TrainingNutrition.jpg",
       link: "https://www.trainerize.me/checkout/transformxfitness1/Jake.Ormerod?planGUID=de7cc0193b69421a9ce27c7691cc41d8"
     },
     {
       title: "TRAINING & NUTRITION ONCE OFF",
-      subtitle: "Custom workout routines",
+      subtitle: "Personalised tranining & nutrition",
       imageSrc: "/img/Training.jpg",
       link: "https://www.trainerize.me/profile/transformxfitness1/?planGUID=2ff503025330456499b9615ab06a9947"
     }

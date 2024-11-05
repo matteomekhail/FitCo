@@ -74,8 +74,8 @@ const HeroSection = () => {
                             transition={{ duration: 0.6, delay: 0.3 }}
                             className="text-4xl md:text-6xl font-bold tracking-tight"
                         >
-                            <span className="block text-white">Build Your Body.</span>
-                            <span className="block mt-2 text-primary-foreground">Transform Your Life.</span>
+                            <span className="block text-white">Eat The Foods You Love.</span>
+                            <span className="block mt-2 text-primary-foreground">Get The Results You Deserve</span>
                         </motion.h1>
 
                         <motion.p
@@ -84,8 +84,7 @@ const HeroSection = () => {
                             transition={{ duration: 0.6, delay: 0.4 }}
                             className="text-lg text-white/90 max-w-xl"
                         >
-                            Join our revolutionary fitness program that combines cutting-edge technology
-                            with personalized coaching to help you achieve your fitness goals faster than ever.
+                        Become the best version of you, with FitCo's Training & Nutrition Plans.
                         </motion.p>
 <motion.div
     initial={{ opacity: 0, y: 20 }}
