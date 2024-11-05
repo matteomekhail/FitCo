@@ -168,7 +168,7 @@ const PricingSection: React.FC = () => {
               }`}
               onClick={() => setActiveTab('membership')}
             >
-              Membership Plans
+              Online Coaching
             </Button>
             <Button
               variant={activeTab === 'oneOff' ? 'default' : 'ghost'}

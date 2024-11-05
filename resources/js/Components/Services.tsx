@@ -43,7 +43,7 @@ const ServicesSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-[#0197F6]">
+    <section id="services" className="bg-[#0197F6]">
       <div className="max-w-[1920px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-3">
           {services.map((service, index) => (

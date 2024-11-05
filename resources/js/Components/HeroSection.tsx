@@ -47,8 +47,6 @@ const HeroSection = () => {
                         />
                     ))}
                 </div>
-
-                {/* Altri elementi di background... */}
             </div>
 
             {/* Main Content con testo in bianco */}
@@ -98,6 +96,12 @@ const HeroSection = () => {
     <Button 
         size="lg" 
         className="bg-white hover:bg-white/90 text-black font-semibold rounded-full px-8 group shadow-lg"
+        onClick={() => {
+            document.getElementById('services')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }}
     >
         Get Started
         <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -106,6 +110,12 @@ const HeroSection = () => {
         size="lg" 
         variant="outline" 
         className="rounded-full border-2 border-white bg-black/30 text-white hover:bg-white hover:text-black transition-colors shadow-lg backdrop-blur-sm"
+        onClick={() => {
+            document.getElementById('pricing-section')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }}
     >
         View Programs
     </Button>
