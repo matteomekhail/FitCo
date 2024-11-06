@@ -11,12 +11,22 @@ import {
 import { Button } from "@/Components/ui/button";
 
 const transformations = [
-    { imageUrl: '/img/Tras1.jpeg' },
     { imageUrl: '/img/Tras2.jpeg' },
+    { imageUrl: '/img/Tras1.jpeg' },
+    { imageUrl: '/img/Tras7.jpeg' },
     { imageUrl: '/img/Tras3.jpeg' },
     { imageUrl: '/img/Tras4.jpeg' },
     { imageUrl: '/img/Tras5.jpeg' },
-    { imageUrl: '/img/Tras6.jpeg' }
+    { imageUrl: '/img/Tras6.jpeg' },
+    { imageUrl: '/img/Tras8.jpeg' },
+    { imageUrl: '/img/Tras9.jpeg' },
+    { imageUrl: '/img/Tras10.jpeg' },
+    { imageUrl: '/img/Tras11.jpeg' },
+    { imageUrl: '/img/Tras12.jpeg' },
+    { imageUrl: '/img/Tras13.jpeg' },
+    { imageUrl: '/img/Tras14.jpeg' },
+    { imageUrl: '/img/Tras15.jpeg' },
+    { imageUrl: '/img/Tras16.jpeg' },
 ];
 
 function TransformationGallery() {
@@ -88,13 +98,6 @@ function TransformationGallery() {
                                                 <div className="flex-1 bg-primary/50 text-white p-3 text-lg font-medium text-right">
                                                     After
                                                 </div>
-                                            </div>
-
-                                            {/* Time Badge */}
-                                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                                                <span className="inline-block bg-white/90 backdrop-blur-sm text-primary rounded-full px-4 py-1 text-sm font-medium shadow-lg">
-                                                    12 Week Transformation
-                                                </span>
                                             </div>
                                         </div>
                                     </div>
