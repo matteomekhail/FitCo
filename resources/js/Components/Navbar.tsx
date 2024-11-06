@@ -9,7 +9,7 @@ function Header() {
     const menuItems = [
         { label: "Online Coaching", href: "#pricing-section" },
         { label: "Once Off Plans", href: "#pricing-section" },
-        { label: "Transformation Gallery", href: "#transformation"},
+        { label: "Client Results", href: "#transformation"},
         { label: "Ebooks", href: "#pricing-section", disabled: true, suffix: "(Coming Soon)" },
     ];
 
