@@ -6,6 +6,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 function Header() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+    const menuItems = [
+        { label: "Online Coaching", href: "#pricing-section" },
+        { label: "Once Off Plans", href: "#pricing-section" },
+        { label: "Transformation Gallery", href: "#transformation"},
+        { label: "Ebooks", href: "#pricing-section", disabled: true, suffix: "(Coming Soon)" },
+    ];
+
     function toggleMenu() {
         setIsMenuOpen(!isMenuOpen);
     }
@@ -21,6 +28,20 @@ function Header() {
                         <a href="/">
                             <img src="/img/Fit Co_White.svg" alt="FIT FOOD co" className="h-8 md:h-10" />
                         </a>
+                    </div>
+                    <div className="hidden lg:flex items-center space-x-8">
+                        {menuItems.map((item) => (
+                            <a
+                                key={item.label}
+                                href={item.href}
+                                className={`text-black hover:text-secondary transition-colors duration-200 ${
+                                    item.disabled ? 'cursor-not-allowed opacity-70' : ''
+                                }`}
+                                onClick={item.disabled ? (e) => e.preventDefault() : undefined}
+                            >
+                                {item.label} {item.suffix}
+                            </a>
+                        ))}
                     </div>
                     <div className="flex items-center space-x-4">
                         <a
@@ -48,13 +69,42 @@ function Header() {
                         transition={{ duration: 0.3, ease: 'easeInOut' }}
                         className="fixed inset-0 bg-primary z-50 flex flex-col items-center justify-start pt-8"
                     >
-                        <div className="w-full flex flex-col items-center">
-                            <a href="/">
-                                <img src="/img/Fit Co_White.svg" alt="FIT FOOD co" className="w-1/2 max-w-[150px] mb-8" />
+                        <div className="container mx-auto px-4 flex flex-col items-center">
+                            <a href="/" className="w-full flex justify-center">
+                                <img src="/img/Fit Co_White.svg" alt="FIT FOOD co" className="h-12 md:h-16" />
                             </a>
+                            
+                            <a
+                                href="https://fitfoodco.au"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="mt-4"
+                            >
+                                <img
+                                    src="img/FitFoodCo.svg"
+                                    alt="FitFoodCo Logo"
+                                    className="h-16 w-auto"
+                                />            
+                            </a>
+                            
+                            <div className="flex flex-col items-center space-y-6 mt-8">
+                                {menuItems.map((item) => (
+                                    <a
+                                        key={item.label}
+                                        href={item.href}
+                                        className={`text-black hover:text-secondary transition-colors duration-200 text-lg ${
+                                            item.disabled ? 'cursor-not-allowed opacity-70' : ''
+                                        }`}
+                                        onClick={item.disabled ? (e) => e.preventDefault() : undefined}
+                                    >
+                                        {item.label} {item.suffix}
+                                    </a>
+                                ))}
+                            </div>
+                            
                             <Button
                                 onClick={toggleMenu}
-                                className="mt-4 text-primary-foreground font-semibold hover:bg-secondary transition-colors duration-200"
+                                className="mt-8 text-primary-foreground font-semibold hover:bg-secondary transition-colors duration-200"
                                 variant="ghost"
                             >
                                 <X className="mr-2 h-5 w-5" /> Close

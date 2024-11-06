@@ -44,8 +44,8 @@ const CTASection = () => {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-4xl md:text-5xl font-bold tracking-tight mb-4"
                   >
-                    <span className="block text-gray-900">Ready to Transform</span>
-                    <span className="block text-primary mt-2">Your Life?</span>
+                    <span className="block text-gray-900">Ready to Take</span>
+                    <span className="block text-primary mt-2">Action?</span>
                   </motion.h2>
 
                   {/* Description */}
@@ -56,8 +56,7 @@ const CTASection = () => {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="text-lg text-gray-600 max-w-2xl mx-auto mb-8"
                   >
-                    Start your fitness journey today with personalized training programs, 
-                    expert nutrition guidance, and dedicated support every step of the way.
+Our goal is to help you achieve realistic, sustainable results that will improve your quality of life, without restricting the foods you love most.
                   </motion.p>
 
                   {/* Buttons */}
@@ -71,6 +70,12 @@ const CTASection = () => {
                     <Button 
                       size="lg" 
                       className="bg-primary hover:bg-primary/90 text-primary-foreground rounded-full px-8 group"
+                      onClick={() => {
+                        document.getElementById('services')?.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }}
                     >
                       Start Your Journey
                       <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -79,6 +84,12 @@ const CTASection = () => {
                       size="lg" 
                       variant="outline" 
                       className="rounded-full border-primary/20 text-primary hover:bg-primary/10"
+                      onClick={() => {
+                        document.getElementById('pricing-section')?.scrollIntoView({ 
+                          behavior: 'smooth',
+                          block: 'start'
+                        });
+                      }}
                     >
                       Explore Programs
                     </Button>

@@ -21,7 +21,7 @@ const transformations = [
 
 function TransformationGallery() {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section id='transformation' className="py-24 bg-white relative overflow-hidden">
             {/* Background Elements */}
             <div className="absolute inset-0">
                 <div className="absolute top-0 -left-4 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-xl opacity-10 animate-blob" />

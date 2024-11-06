@@ -75,7 +75,7 @@ const HeroSection = () => {
                             className="text-4xl md:text-6xl font-bold tracking-tight"
                         >
                             <span className="block text-white">Eat The Foods You Love.</span>
-                            <span className="block mt-2 text-primary-foreground">Get The Results You Deserve</span>
+                            <span className="block mt-2 text-primary-foreground">Get The Results You Deserve🔥</span>
                         </motion.h1>
 
                         <motion.p
