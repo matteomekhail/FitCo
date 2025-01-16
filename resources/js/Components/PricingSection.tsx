@@ -14,13 +14,14 @@ interface PlanProps {
   title: string;
   subtitle: string;
   price: number;
+  originalPrice?: number;
   frequency: string;
   features: PlanFeature[];
   buttonLink: string;
   highlighted?: boolean;
 }
 
-function PlanCard({ title, subtitle, price, frequency, features, buttonLink, highlighted }: PlanProps) {
+function PlanCard({ title, subtitle, price, originalPrice, frequency, features, buttonLink, highlighted }: PlanProps) {
   return (
     <motion.div
       whileHover={{ scale: 1.03 }}
@@ -36,12 +37,32 @@ function PlanCard({ title, subtitle, price, frequency, features, buttonLink, hig
             MOST POPULAR
           </Badge>
         )}
+        {originalPrice && (
+          <Badge className="absolute top-4 left-4 bg-red-500 hover:bg-red-500 text-white">
+            SALE
+          </Badge>
+        )}
         <CardHeader className="text-center pt-8">
           <CardTitle className="text-3xl font-extrabold mb-2 text-gray-900">{title}</CardTitle>
           <p className="text-sm text-gray-600 mb-4">{subtitle}</p>
           <div className="text-center mb-4">
-            <span className="text-5xl font-bold text-primary">${price}</span>
-            <span className="text-lg text-gray-600">/{frequency}</span>
+            {originalPrice ? (
+              <>
+                <span className="text-5xl font-bold text-red-500">${price}</span>
+                <span className="text-lg text-gray-600 line-through ml-2">${originalPrice}</span>
+                <span className="text-lg text-gray-600">/{frequency}</span>
+                {originalPrice && (
+                  <div className="mt-2 text-red-500 font-semibold">
+                    Save ${(originalPrice - price).toFixed(2)}!
+                  </div>
+                )}
+              </>
+            ) : (
+              <>
+                <span className="text-5xl font-bold text-primary">${price}</span>
+                <span className="text-lg text-gray-600">/{frequency}</span>
+              </>
+            )}
           </div>
         </CardHeader>
         <CardContent className="flex-grow px-8">
@@ -97,7 +118,8 @@ const PricingSection: React.FC = () => {
       {
         title: "Training and Nutrition",
         subtitle: "Complete Coaching",
-        price: 74.95,
+        price: 60,
+        originalPrice: 74.95,
         frequency: "weekly",
         features: [
           { name: "2 x Single Day Meal Plans Per Fortnight", included: true },
@@ -132,7 +154,8 @@ const PricingSection: React.FC = () => {
       {
         title: "Once Off Training and Nutrition",
         subtitle: "Comprehensive Start",
-        price: 300,
+        price: 150,
+        originalPrice: 300,
         frequency: "one-time",
         features: [
           { name: "2 x Single Day Meals Plans", included: true },
